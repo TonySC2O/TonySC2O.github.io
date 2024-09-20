@@ -1,16 +1,12 @@
-
-let map = L.map('map').setView([9.859, -83.891154],18)
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    atributtion: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+let map = L.map('map').setView([9.859537, -83.891856],18)
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	attribution: 'Datos &copy; <a href="http://osm.org/copyright" target="blanck">Colaboradores de OpenStreetMap</a> (<a href="http://www.openstreetmap.org/copyright" target="blanck">ODbL</a>) | Teselas <a href="https://github.com/gravitystorm/openstreetmap-carto" target="blanck">OSM Carto</a> &copy; Randy Allan y otros colaboradores (<a href="https://creativecommons.org/licenses/by-sa/2.0/deed.es" target="blanck">CC BY-SA 2.0</a>)'
+	}).addTo(map);
 
 let marker = L.marker([9.859537, -83.891856]).addTo(map);
-/*
-let bounds = [
-    [9.859220, -83.8932924], // Esquina inferior izquierda
-    [9.859320, -83.891065]  // Esquina superior derecha
-  ];
-*/
+
+
+
 var casas = {
     "type": "FeatureCollection",
     "name": "Casas",
@@ -55,7 +51,7 @@ var casas = {
             "name": "2",
             "building": "house"
         }
-    },{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-83.8929486,9.8593658],[-83.8930376,9.8592137],[-83.8929337,9.8591512],[-83.8928508,9.8593111],[-83.8929486,9.8593658]]]},"properties":{"osm_id":1316593229,"name":"2","building":"house"}},
+    },
     {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-83.8926655,9.8592042],[-83.8927608,9.8590424],[-83.8926587,9.8589825],[-83.8925627,9.8591415],[-83.8926655,9.8592042]]]},"properties":{"osm_id":1316593230,"name":"5","building":"house"}},
     {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-83.8925627,9.8591415],[-83.8926587,9.8589825],[-83.8925994,9.858946],[-83.8925775,9.8589824],[-83.8925466,9.8589643],[-83.892471,9.8590898],[-83.8925627,9.8591415]]]},"properties":{"osm_id":1316593231,"name":"6","building":"house"}},
     {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-83.892471,9.8590898],[-83.8925466,9.8589643],[-83.8925652,9.858929],[-83.8924634,9.8588707],[-83.8923683,9.8590316],[-83.892471,9.8590898]]]},"properties":{"osm_id":1316593232,"name":"7","building":"house"}},
@@ -280,7 +276,7 @@ var calles = {
 }
 
 //Funciones para visualizar el mapa 
-//map.fitBounds(bounds);
+
 L.geoJSON(casas).addTo(map);
 L.geoJSON(lotes, {
     style: styleLotes
