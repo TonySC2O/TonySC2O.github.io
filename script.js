@@ -219,12 +219,33 @@ var postes = {
     {"type":"Feature","geometry":{"type":"Point","coordinates":[-83.8915791,9.8594519]},"properties":{"osm_id":12186802631,"line_attachment":"suspension","man_made":"utility_pole","material":"concrete","utility":"electric;television;telecom"}},
     {"type":"Feature","geometry":{"type":"Point","coordinates":[-83.8915306,9.8592326]},"properties":{"osm_id":12186802632,"line_attachment":"suspension","man_made":"utility_pole","material":"concrete","utility":"electric;television;telecom"}},
     {"type":"Feature","geometry":{"type":"Point","coordinates":[-83.8915089,9.8589311]},"properties":{"osm_id":12186802633,"line_attachment":"suspension","man_made":"utility_pole","material":"concrete","utility":"electric;television;telecom"}},
-    {"type":"Feature","geometry":{"type":"Point","coordinates":[-83.8933119,9.8592495]},"properties":{"osm_id":12186802634,"line_attachment":"suspension","man_made":"utility_pole","material":"concrete","utility":"electric;television;telecom"}},
+    {"type":"Feature","geometry":{"type":"Point","coordinates":[-83.8933119,9.8592495]},"properties":{"osm_id":12186802634,"line_attachment":"suspension","man_made":"utility_pole","material":"concrete","utility":"electric;television;telecom"}}
+    ]
+}
+
+var colorPostesTension = {
+    radius: 4,
+    fillColor: "#FFFFF0",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+};
+
+var postesTension = {
+    "type": "FeatureCollection",
+    "name": "postes",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
     {"type":"Feature","geometry":{"type":"Point","coordinates":[-83.8932987,9.8592586]},"properties":{"osm_id":12186802635,"line_attachment":"suspension","material":"concrete","design":"one-level","power":"pole"}},
     {"type":"Feature","geometry":{"type":"Point","coordinates":[-83.8930491,9.8595421]},"properties":{"osm_id":12186802636,"line_attachment":"suspension","material":"concrete","design":"one-level","power":"pole"}},
     {"type":"Feature","geometry":{"type":"Point","coordinates":[-83.8928828,9.8598731]},"properties":{"osm_id":12186802637,"line_attachment":"suspension","material":"concrete","design":"one-level","power":"pole"}}
     ]
-}
 
 var colorHidrantes = {
     radius: 4,
@@ -293,7 +314,12 @@ L.geoJSON(postes, {
     pointToLayer: function(feature, latlng) {
         return L.circleMarker(latlng, colorPostes);
     }
-}).addTo(map)
+}).addTo(map);
+L.geoJSON(postesTension, {
+    pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng, colorPostesTension);
+    }
+}).addTo(map);
 L.geoJSON(calles, {
     style: styleCalles
 }).addTo(map);
