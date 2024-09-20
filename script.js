@@ -225,7 +225,7 @@ var postes = {
 
 var colorPostesTension = {
     radius: 4,
-    fillColor: "#FFFFF0",
+    fillColor: "#bcfc97",
     color: "#000",
     weight: 1,
     opacity: 1,
@@ -246,6 +246,7 @@ var postesTension = {
     {"type":"Feature","geometry":{"type":"Point","coordinates":[-83.8930491,9.8595421]},"properties":{"osm_id":12186802636,"line_attachment":"suspension","material":"concrete","design":"one-level","power":"pole"}},
     {"type":"Feature","geometry":{"type":"Point","coordinates":[-83.8928828,9.8598731]},"properties":{"osm_id":12186802637,"line_attachment":"suspension","material":"concrete","design":"one-level","power":"pole"}}
     ]
+}
 
 var colorHidrantes = {
     radius: 4,
@@ -319,7 +320,7 @@ L.geoJSON(postesTension, {
     pointToLayer: function(feature, latlng) {
         return L.circleMarker(latlng, colorPostesTension);
     }
-}).addTo(map);
+}).addTo(map)
 L.geoJSON(calles, {
     style: styleCalles
 }).addTo(map);
